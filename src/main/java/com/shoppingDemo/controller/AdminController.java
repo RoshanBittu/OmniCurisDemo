@@ -76,7 +76,7 @@ public class AdminController {
 		
 		Products p = productService.getProductByID(product.getProductId());
 		if(p!=null){
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 		}
 			productService.createProduct(product);
 		HttpHeaders headers = new HttpHeaders();
@@ -165,7 +165,7 @@ public class AdminController {
 			}
 			if(products.getProductQuantity()< it.getItemQuantity()){
 				message = "Sorry the Order Cannot be place,quantity not sufficient for "+it.getItemID();
-				return new ResponseEntity<String>(message,HttpStatus.NOT_ACCEPTABLE);
+				return new ResponseEntity<String>(message,HttpStatus.NOT_FOUND);
 			}
 			
 		}
