@@ -63,6 +63,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "/getProductByID/{id}",method=RequestMethod.GET)
 	public ResponseEntity<Products> getProductByID(@PathVariable("id") int id){
+		String test;
 		Products p = productService.getProductByID(id);
 		if(p == null){
 			return new ResponseEntity<Products>(HttpStatus.NOT_FOUND);
